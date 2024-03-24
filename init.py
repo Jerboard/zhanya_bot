@@ -18,7 +18,7 @@ bot = Client("zhenya", api_id=config.API_ID, api_hash=config.API_HAS)
 
 
 def log_error(message):
-    timestamp = datetime.now(TZ)
+    timestamp = datetime.now()
     filename = traceback.format_exc()[1]
     line_number = traceback.format_exc()[2]
     logging.error(f'{timestamp} {filename} {line_number}: {message}')

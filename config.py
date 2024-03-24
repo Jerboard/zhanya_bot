@@ -8,7 +8,7 @@ load_dotenv ()
 
 
 class config:
-    debug = getenv('DEBUG')
+    debug = bool(int(getenv('DEBUG')))
     TZ = timezone('Asia/Tbilisi')
     FILTER_CHAT_DATA_NAME = getenv('FILTER_CHAT_DATA_NAME')
     START_LINK = getenv ('START_LINK')
