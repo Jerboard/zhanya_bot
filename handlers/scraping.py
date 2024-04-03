@@ -2,7 +2,7 @@ from pyrogram.types import Message
 from pyrogram.filters import chat
 
 from init import bot
-from data.chats import chats_flea_market_tbilisi, water_supply, gldanis_lair
+from data.chats import chats_flea_market_tbilisi, water_supply, gldanis_lair, gldanis_ads
 from utils.message_utils import remove_punctuation
 
 
@@ -21,7 +21,7 @@ async def flea_market(client, msg: Message):
     for word in clear_text:
         if word in target:
             await bot.forward_messages(
-                chat_id=gldanis_lair,
+                chat_id=gldanis_ads,
                 from_chat_id=msg.chat.id,
                 message_ids=msg.id
             )
