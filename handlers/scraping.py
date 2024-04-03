@@ -15,6 +15,7 @@ recent_text: list = []
 
 @bot.on_message(chat(list(chats_flea_market_tbilisi.values())))
 async def flea_market(client, msg: Message):
+    global recent_text
     text = msg.text if msg.text else msg.caption
 
     if text not in recent_text:
@@ -30,6 +31,8 @@ async def flea_market(client, msg: Message):
                     message_ids=msg.id
                 )
                 recent_text.append(text)
+                if len (recent_text) >= 10:
+                    recent_text = recent_text [-10:]
                 break
 
 
