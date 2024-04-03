@@ -15,7 +15,7 @@ except:
     pass
 
 bot = Client("zhenya", api_id=config.API_ID, api_hash=config.API_HAS)
-
+last_ads: list = []
 
 def log_error(message):
     timestamp = datetime.now()
