@@ -6,6 +6,11 @@ from data.chats import chats_flea_market_tbilisi, water_supply, gldanis_lair
 from utils.message_utils import remove_punctuation
 
 
+# @bot.on_message()
+# async def new_chats(client, msg: Message):
+#     print(msg.chat.title, msg.chat.id)
+
+
 @bot.on_message(chat(list(chats_flea_market_tbilisi.values())))
 async def flea_market(client, msg: Message):
     text = msg.text if msg.text else msg.caption
