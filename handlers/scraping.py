@@ -36,7 +36,7 @@ async def flea_market(client, msg: Message):
                     recent_text = recent_text [-10:]
 
                 text_link = f'<a href="https://t.me/{msg.chat.username}/{msg.id}"><b>Оригинал</b></a>'
-                await bot.send_message(chat_id=gldanis_ads, text=text_link)
+                await bot.send_message(chat_id=gldanis_ads, text=text_link, disable_web_page_preview=True)
 
                 break
 
