@@ -25,22 +25,24 @@ async def flea_market(client, msg: Message):
 
         for word in clear_text:
             if word in target:
-                try:
-                    await bot.forward_messages(
-                        chat_id=gldanis_ads,
-                        from_chat_id=msg.chat.id,
-                        message_ids=msg.id
-                    )
 
+                await bot.forward_messages(
+                    chat_id=gldanis_ads,
+                    from_chat_id=msg.chat.id,
+                    message_ids=msg.id
+                )
+                recent_text.append (text)
+                if len (recent_text) >= 10:
+                    recent_text = recent_text [-10:]
+
+                try:
                     text_link = f'<a href="https://t.me/{msg.chat.username}/{msg.id}"><b>Оригинал</b></a>'
                     await bot.send_message(chat_id=gldanis_ads, text=text_link, parse_mode='html')
 
-                except:
-                    pass
+                except Exception as ex:
+                    text_link = f'@{msg.chat.username}\n\n{ex}'
+                    await bot.send_message (chat_id=gldanis_ads, text=text_link, parse_mode='html')
                 finally:
-                    recent_text.append (text)
-                    if len (recent_text) >= 10:
-                        recent_text = recent_text [-10:]
                     break
 
 
