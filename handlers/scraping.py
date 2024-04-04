@@ -25,15 +25,23 @@ async def flea_market(client, msg: Message):
 
         for word in clear_text:
             if word in target:
-                await bot.forward_messages(
-                    chat_id=gldanis_ads,
-                    from_chat_id=msg.chat.id,
-                    message_ids=msg.id
-                )
-                recent_text.append(text)
-                if len (recent_text) >= 10:
-                    recent_text = recent_text [-10:]
-                break
+                try:
+                    await bot.forward_messages(
+                        chat_id=gldanis_ads,
+                        from_chat_id=msg.chat.id,
+                        message_ids=msg.id
+                    )
+
+                    if msg.media_group_id:
+                        text = f'https://t.me/{msg.chat.username}/{msg.id}'
+
+                    recent_text.append(text)
+                    if len (recent_text) >= 10:
+                        recent_text = recent_text [-10:]
+                except:
+                    pass
+                finally:
+                    break
 
 
 @bot.on_message(chat(water_supply))
