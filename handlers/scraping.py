@@ -35,15 +35,10 @@ async def flea_market(client, msg: Message):
                 if len (recent_text) >= 10:
                     recent_text = recent_text [-10:]
 
-                try:
-                    text_link = f'<a href="https://t.me/{msg.chat.username}/{msg.id}"><b>Оригинал</b></a>'
-                    await bot.send_message(chat_id=gldanis_ads, text=text_link, parse_mode='html')
+                text_link = f'<a href="https://t.me/{msg.chat.username}/{msg.id}"><b>Оригинал</b></a>'
+                await bot.send_message(chat_id=gldanis_ads, text=text_link)
 
-                except Exception as ex:
-                    text_link = f'@{msg.chat.username}\n\n{ex}'
-                    await bot.send_message (chat_id=gldanis_ads, text=text_link, parse_mode='html')
-                finally:
-                    break
+                break
 
 
 @bot.on_message(chat(water_supply))

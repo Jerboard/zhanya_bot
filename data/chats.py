@@ -24,4 +24,4 @@ chats_flea_market_tbilisi = {
 
 water_supply = -1001732926261
 gldanis_lair = -824005991
-gldanis_ads =  -4181644104
+gldanis_ads = -4181644104
