@@ -32,15 +32,15 @@ async def flea_market(client, msg: Message):
                         message_ids=msg.id
                     )
 
-                    if msg.media_group_id:
-                        text = f'https://t.me/{msg.chat.username}/{msg.id}'
+                    text_link = f'<a href="https://t.me/{msg.chat.username}/{msg.id}"><b>Оригинал</b></a>'
+                    await bot.send_message(chat_id=gldanis_ads, text=text_link, parse_mode='html')
 
-                    recent_text.append(text)
-                    if len (recent_text) >= 10:
-                        recent_text = recent_text [-10:]
                 except:
                     pass
                 finally:
+                    recent_text.append (text)
+                    if len (recent_text) >= 10:
+                        recent_text = recent_text [-10:]
                     break
 
 
