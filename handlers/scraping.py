@@ -21,7 +21,7 @@ async def flea_market(client, msg: Message):
     if text not in recent_text:
         clear_text = remove_punctuation(text)
 
-        target = ['стол', 'стул', 'стулья', 'утюг']
+        target = ['стол', 'стул', 'стулья']
 
         for word in clear_text:
             if word in target:
