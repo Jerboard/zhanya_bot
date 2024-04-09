@@ -62,7 +62,7 @@ async def new_chats(_, msg: Message):
 
     except Exception as ex:
         log_error(ex)
-        text = 'Ой, ребят, что-то сломалось(( Попробуйте ещё раз, если не пойдёт - сообщите разработчикам'
+        text = 'Ой, ребят, что-то сломалось(( Попробуйте ещё раз, если не пойдёт - сообщите разработчику'
         await bot.send_message (chat_id=msg.chat.id, text=text, parse_mode=ParseMode.HTML)
 
 
@@ -77,7 +77,7 @@ async def flea_market(_, msg: Message):
 
         ignor_chats = []
         for target_word in targets:
-            match = re.search(target_word, text, re.IGNORECASE)
+            match = re.search(target_word.replace('*', ' '), text, re.IGNORECASE)
             if match:
                 recent_text.append (text)
                 if len (recent_text) >= 10:
