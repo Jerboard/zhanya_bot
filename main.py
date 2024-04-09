@@ -10,4 +10,4 @@ if __name__ == '__main__':
         logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     else:
         logging.basicConfig (level=logging.WARNING, format="%(asctime)s %(levelname)s %(message)s", filename='log.log')
-    bot.run()
+    bot.run ()
