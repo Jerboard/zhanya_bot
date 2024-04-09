@@ -43,7 +43,7 @@ async def new_chats(_, msg: Message):
         chat_targets = await db.get_orders(chat_id=msg.chat.id)
 
         if chat_targets:
-            target_text = '<b>Целевые слова для чата</b>\n'
+            target_text = '<b>Целевые слова для чата:</b>\n'
             for target in chat_targets:
                 target_text = f'{target_text}<code>{target.target}</code>\n'
         else:
@@ -77,7 +77,7 @@ async def flea_market(_, msg: Message):
 
         ignor_chats = []
         for target_word in targets:
-            match = re.search(target_word.replace('*', ' '), text, re.IGNORECASE)
+            match = re.search(target_word.replace('*', '\W'), text, re.IGNORECASE)
             if match:
                 recent_text.append (text)
                 if len (recent_text) >= 10:

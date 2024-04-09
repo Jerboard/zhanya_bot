@@ -21,7 +21,7 @@ OrderTable = sa.Table(
     METADATA,
     sa.Column('id', sa.BigInteger, primary_key=True, autoincrement=True),
     sa.Column('created_at', sa.DateTime),
-    sa.Column('chat_id', sa.Integer),
+    sa.Column('chat_id', sa.BigInteger),
     sa.Column('target', sa.String(255)),
     sa.Column('title', sa.String(255)),
 )
