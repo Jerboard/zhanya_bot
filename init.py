@@ -15,10 +15,7 @@ try:
 except:
     pass
 
-try:
-    bot = Client("zhenya")
-except:
-    bot = Client("zhenya", api_id=config.API_ID, api_hash=config.API_HAS)
+bot = Client("zhenya", api_id=config.API_ID, api_hash=config.API_HAS)
 
 ENGINE = create_async_engine (url=config.db_url)
 
